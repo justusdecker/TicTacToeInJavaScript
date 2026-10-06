@@ -186,3 +186,6 @@ class TicTacToe {
         this.CheckWinCondition();
     }
 }
+
+const ttt = new TicTacToe();
+ttt.ResetColumns();
