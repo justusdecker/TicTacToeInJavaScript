@@ -1,0 +1,132 @@
+* {
+    color: white;
+    font-family: monospace;
+}
+:root {
+    --box-shadow-2px: rgb(24, 8, 8) 2px 2px;
+    --box-shadow-10px: rgb(24, 8, 8) 10px 10px;
+
+    --box-shadow-2px-highlight: rgb(124, 124, 124) 2px 2px;
+    --box-shadow-10px-highlight: rgb(124, 124, 124) 10px 10px;
+}
+body {
+    background-color: #aaaaaa;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    
+}
+h1 {
+    font-size: 5em;
+}
+h1, h3 {
+    text-align: center;
+    padding: 2px;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+}
+
+.column {
+    font-size: 10em;
+    background-color: rgb(255, 139, 139);
+    border-radius: 10px;
+    margin: 0.25em;
+
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    box-shadow: var(--box-shadow-10px);
+}
+.blocked {
+    filter: grayscale(100%) opacity(50%);
+    transition: background 0.3s ease-in-out;
+}
+.blocked:hover {
+    filter:opacity(70%);
+}
+
+
+.column:hover {
+    background-color: rgb(255, 255, 255);
+    transform: translateY(-2px);
+}
+.failure {
+    background-color: red;
+    filter:grayscale(0);
+    border-radius: 10px;
+    margin: 0.25em;
+    font-size: 10em;
+    cursor:not-allowed;
+    box-shadow: var(--box-shadow-10px);
+    animation: failure-animation 1s infinite forwards ease-in-out;
+
+}
+
+@keyframes failure-animation {
+    0% {transform: translateX(0);}
+    25% {transform: translateX(4px);}
+    75% {transform: translateX(-4px);}
+    100% {transform: translateX(0);}
+}
+@keyframes success-animation {
+    0% {transform: translateY(0);}
+    25% {transform: translateY(4px);}
+    75% {transform: translateY(-4px);}
+    100% {transform: translateY(0);}
+}
+
+
+.success {
+    background-color: greenyellow;
+    filter: grayscale(0) brightness(110%);
+    box-shadow: var(--box-shadow-10px);
+    border-radius: 10px;
+    margin: 0.25em;
+    font-size: 10em;
+    cursor:not-allowed;
+    animation: success-animation 1s infinite forwards ease-in-out;
+}
+.row {
+    display: flex;
+    
+}
+#tic-tac-toe-board {
+    background-color: wheat;
+    width: fit-content;
+    height: fit-content;
+    padding: 5em;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-10px);
+    border: 3px solid white;
+}
+#winner-modale {
+    background-color: #ffd700aa;
+    box-shadow: rgb(24, 8, 8) 10px 10px;
+    
+    border-radius: 10px;
+    border: 3px solid white;
+    width: 50%;
+    height: 50%;
+}
+body:has(dialog:modal) {
+    filter:brightness(50%);
+}
+#rbtn {
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    box-shadow: rgb(24, 8, 8) 2px 2px;
+    text-align: center;
+    padding: 2em;
+    border-radius: 10px;
+    font-size: 2em;
+    
+    margin-left: 25%;
+    margin-right: 25%;
+    transition: background 0.3s ease-in-out;
+}
+#rbtn:hover {
+    box-shadow: rgb(99, 99, 99) 2px 2px;
+    transform: translateY(-2px);
+    cursor: pointer;
+}
